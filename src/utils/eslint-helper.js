@@ -25,6 +25,7 @@ var eslintHelper = function(program, configName) {
   ].concat(files);
 
   if (!program.eslintrc) {
+    log.info("Got no program eslintrc");
     command.push('--no-eslintrc');
   }
   

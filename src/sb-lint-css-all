@@ -9,7 +9,8 @@ var program = CommanderWrapper(function(commander) {
   return commander
     .option('-w, --watch', 'watch files for changes and re-lint')
     .option('-e, --errors', 'only log errors')
-    .option('-f, --fix', 'does not work for this binary');
+    .option('-f, --fix', 'does not work for this binary')
+    .option('-r, --eslintrc', 'allow local use of .eslintrc file');
 });
 
 var commands = [];
@@ -26,6 +27,9 @@ if (PathsExist(path.join(config.css.src, 'index.scss')) ||
 commands = commands.map(function(command) {
   if (program.watch) {
     command.push('--watch');
+  }
+  if (program.eslintrc) {
+    command.push('--eslintrc');
   }
   if (program.errors) {
     command.push('--errors');

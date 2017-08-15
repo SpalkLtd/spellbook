@@ -24,6 +24,9 @@ commands = commands.map(function(command) {
   if (program.errors) {
     command.push('--errors');
   }
+  if (program.eslintrc) {
+    command.push('--eslintrc');
+  }
   if (program.watch) {
     command.push('--watch');
   }

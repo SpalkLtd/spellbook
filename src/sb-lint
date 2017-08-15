@@ -19,6 +19,7 @@ var program = CommanderWrapper(function(commander) {
     console.log('    -w, --watch              watch files for changes and relint');
     console.log('    -f, --fix                automatically fix issues, may not work for all binaries');
     console.log('    -e, --errors             only print linting errors');
+    console.log('    -r, --eslintrc           allow the use of your own eslintrc');
     console.log();
   });
 
