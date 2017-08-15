@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 var Run = require('./utils/run');
 var CommanderWrapper = require('./utils/commander-wrapper');
+var log = require('./utils/log');
 
 var program = CommanderWrapper(function(commander) {
   return commander
     .option('-p, --port <number>', 'what port to start the test server on', parseInt)
     .option('-nb, --no-build', 'dont build or watch build')
+    .option('-r, --eslintrc', 'use local eslintrc')
     .option('-nl, --no-lint', 'dont lint or watch lint', parseInt);
 });
 
@@ -24,6 +26,10 @@ if (program.lint) {
 
 commands = commands.map(function(command) {
   command.push('--watch');
+  if (program.eslintrc && command[0] === 'sb-lint-all') {
+    command.push('--eslintrc');
+  }
+  log.info(command);
   return command;
 });
 
