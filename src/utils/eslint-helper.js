@@ -20,11 +20,14 @@ var eslintHelper = function(program, configName) {
   var command =  [
     'eslint',
     '--color',
-    '--no-eslintrc',
     '--ignore', 'node_modules',
     '--config', configName
   ].concat(files);
 
+  if (!program.eslintrc) {
+    command.push('--no-eslintrc');
+  }
+  
   if (program.errors) {
     command.push('--quiet');
   }
