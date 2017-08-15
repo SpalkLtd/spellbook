@@ -5,13 +5,13 @@ var getBabelConfig = function() {
   var config = GetConfig();
   var babelConfig = {
     "plugins": ["transform-object-assign"],
-    "presets": ["es2015"]
+    "presets": ["es2017"]
   };
 
   if (config.ie8) {
     babelConfig = {
       "presets": [
-        ["es2015", {"loose": true}]
+        ["es2017", {"loose": true}]
       ],
         "plugins": [
           "transform-es3-property-literals",
