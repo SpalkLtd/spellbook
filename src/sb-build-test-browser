@@ -15,7 +15,6 @@ var program = CommanderWrapper(function(commander) {
       this.src = src;
     });
 });
-
 if (!program.src) {
   program.src = config.test.src;
 }

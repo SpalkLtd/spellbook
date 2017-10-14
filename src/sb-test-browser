@@ -42,7 +42,6 @@ buildPromise.then(function() {
   if (retval && retval.status && retval.status !== 0) {
     lintingFail = true;
   }
-
   var server = new KarmaServer(karmaConfig, function(exitCode) {
     // always return failure if linting failed
     // unless this is during --watch
