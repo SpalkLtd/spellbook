@@ -5,7 +5,11 @@ var saucelabs = require('./saucelabs');
 var launchers = {
   travis_chrome: {
     base: 'Chrome',
-    flags: ['--no-sandbox']
+    flags: ['--no-sandbox', '--disable-gpu', '--headless', '--remote-debugging-port=9222']
+  },
+  travis_firefox: {
+    base: 'Firefox',
+    flags: '-headless'
   }
 };
 
@@ -45,6 +49,13 @@ var configure = function(program, config, karmaConfig) {
 
   if (i !== -1) {
     karmaConfig.browsers[i] = 'travis_chrome';
+  }
+
+  // change Firefox entries to travis_firefox
+  i = findBrowser(karmaConfig.browsers, 'firefox');
+
+  if (i !== -1) {
+    karmaConfig.browsers[i] = 'travis_firefox';
   }
 
   return karmaConfig;
