@@ -49,7 +49,7 @@ if (program.port) {
 }
 
 if (program.lint && !program.watch) {
-  commands.unshift(['sb-lint']);
+  commands.unshift(['sb-lint', '--eslintrc']);
 }
 
 var buildPromise = Promise.resolve();
