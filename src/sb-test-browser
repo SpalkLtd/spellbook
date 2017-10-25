@@ -34,7 +34,7 @@ if (program.build && !program.watch) {
 
 buildPromise.then(function() {
   if (program.lint && !program.watch) {
-    return Run.one(['sb-lint'], {nonFatal: true});
+    return Run.one(['sb-lint','--eslintrc'], {nonFatal: true});
   }
   return Promise.resolve();
 }).then(function(retval) {

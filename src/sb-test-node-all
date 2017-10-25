@@ -34,7 +34,7 @@ commands.map(function(command) {
 });
 
 if (program.lint) {
-  commands.unshift('sb-lint');
+  commands.unshift(['sb-lint', '--eslintrc']);
 }
 
 buildPromise.then(function() {
