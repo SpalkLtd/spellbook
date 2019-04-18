@@ -105,7 +105,7 @@
     "browser-sync": "^2.15.0",
     "browserify": "^14.0.0",
     "browserify-banner": "^1.0.3",
-    "browserify-shim": "git://github.com/brandonocasey/browserify-shim.git#configable-inscript",
+    "browserify-shim": "git://github.com/SpalkLtd/browserify-shim.git",
     "browserify-versionify": "^1.0.6",
     "bundle-collapser": "^1.2.1",
     "chg": "^0.3.2",
